@@ -1,5 +1,6 @@
 -- File containing all relations for database.
 
+-- Relations
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -16,6 +17,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 --
 -- CSS475 Project DB
 -- -----------------------------------------------------
+
 CREATE SCHEMA IF NOT EXISTS `Warhammer40kDB` ;
 USE `Warhammer40kDB` ;
 
@@ -38,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment` (
   `Army_name` VARCHAR(50) NOT NULL,
   `Faction` VARCHAR(45) NULL,
   `Command_Point_Value` INT NULL DEFAULT 0,
-  PRIMARY KEY (`Detachment_Name`, `Army_name`),
+  PRIMARY KEY (`Detachment_name`, `Army_name`),
   INDEX `Army_Name_idx` (`Army_name` ASC),
-  CONSTRAINT `Army_Name`
+  CONSTRAINT `Army_name`
     FOREIGN KEY (`Army_name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -51,19 +53,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Army_Has_Detachment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Army_Has_Detachment` (
-  `Army_Name` VARCHAR(50) NOT NULL,
-  `Detachment_Name` VARCHAR(30) NOT NULL,
-  PRIMARY KEY (`Army_Name`, `Detachment_Name`),
-  INDEX `Detachment_Name_idx` (`Detachment_Name` ASC),
-  CONSTRAINT `Army_Name_for_this`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Army_has_detachment` (
+  `Army_name` VARCHAR(50) NOT NULL,
+  `Detachment_name` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`Army_name`, `Detachment_name`),
+  INDEX `Detachment_Name_idx` (`Detachment_name` ASC),
+  CONSTRAINT `Army_Name_has_detachment`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `Detachment_Name_for this`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  CONSTRAINT `Detachment_name_has_detachment`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -72,23 +74,23 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Unit Limit`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit Limit` (
-  `Unit_Type` VARCHAR(19) NOT NULL,
-  `Detachment_Name` VARCHAR(30) NULL,
-  `Army_Name` VARCHAR(50) NULL,
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit_limit` (
+  `Unit_type` VARCHAR(19) NOT NULL,
+  `Detachment_name` VARCHAR(30) NULL,
+  `Army_name` VARCHAR(50) NULL,
   `Minimum` INT NULL DEFAULT 0,
   `Maximum` INT NULL,
-  PRIMARY KEY (`Unit_Type`),
-  INDEX `Detachment_Name_idx` (`Detachment_Name` ASC),
-  INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Detachment_Name_limit`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  PRIMARY KEY (`Unit_type`),
+  INDEX `Detachment_ame_idx` (`Detachment_name` ASC),
+  INDEX `Army_name_idx` (`Army_name` ASC),
+  CONSTRAINT `Detachment_name_unit_limit`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Army_Name_limit`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_Name_unit_limit`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -97,20 +99,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Detachment_Has_Unit_Limit`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment_Has_Unit_Limit` (
-  `Detachment_Name` VARCHAR(30) NOT NULL,
-  `Unit_Type` VARCHAR(19) NULL,
-  `Army_Name` VARCHAR(50) NULL,
-  PRIMARY KEY (`Detachment_Name`),
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment_has_unit_limit` (
+  `Detachment_name` VARCHAR(30) NOT NULL,
+  `Unit_type` VARCHAR(19) NULL,
+  `Army_name` VARCHAR(50) NULL,
+  PRIMARY KEY (`Detachment_name`),
   INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Detachment_Name_unit_limit`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  CONSTRAINT `Detachment_name_has_unit_limit`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Army_Name_unit_limit`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_name_has_unit_limit`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -120,32 +122,32 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Unit`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit` (
-  `Unit_Name` VARCHAR(50) NOT NULL,
-  `Detachment_Name` VARCHAR(30) NULL,
-  `Army_Name` VARCHAR(50) NULL,
+  `Unit_name` VARCHAR(50) NOT NULL,
+  `Detachment_name` VARCHAR(30) NULL,
+  `Army_name` VARCHAR(50) NULL,
   `Move` INT NULL,
-  `W_Skill` INT NULL,
-  `B_Skill` INT NULL,
-  `Unit_S` INT NULL,
-  `Unit_T` INT NULL,
+  `W_skill` INT NULL,
+  `B_skill` INT NULL,
+  `Unit_s` INT NULL,
+  `Unit_t` INT NULL,
   `Wounds` INT NULL,
   `Agility` INT NULL,
   `Leadership` INT NULL,
   `Save` INT NULL,
   `Invul` INT NULL,
-  `Would_Track` VARCHAR(45) NULL, -- May need to make this its own table
-  `Point_Value` INT NULL,
-  PRIMARY KEY (`Unit_Name`),
-  INDEX `Detachment_Name_idx` (`Detachment_Name` ASC),
-  INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Detachment_Name_Unit`
+  `Would_track` VARCHAR(45) NULL, -- May need to make this its own table
+  `Point_value` INT NULL,
+  PRIMARY KEY (`Unit_name`),
+  INDEX `Detachment_name_idx` (`Detachment_name` ASC),
+  INDEX `Army_Name_idx` (`Army_name` ASC),
+  CONSTRAINT `Detachment_name_unit`
     FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Army_Name_Unit`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_name_unit`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -154,26 +156,26 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Detachment_Has_Unit`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment_Has_Unit` (
-  `Detachment_Name` VARCHAR(30) NOT NULL,
-  `Unit_Name` VARCHAR(50) NULL,
-  `Army_Name` VARCHAR(40) NULL,
-  PRIMARY KEY (`Detachment_Name`),
-  INDEX `Unit_Name_idx` (`Unit_Name` ASC),
-  INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Unit_Name`
-    FOREIGN KEY (`Unit_Name`)
-    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_Name`)
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment_has_unit` (
+  `Detachment_name` VARCHAR(30) NOT NULL,
+  `Unit_name` VARCHAR(50) NULL,
+  `Army_name` VARCHAR(40) NULL,
+  PRIMARY KEY (`Detachment_name`),
+  INDEX `Unit_name_idx` (`Unit_name` ASC),
+  INDEX `Army_name_idx` (`Army_name` ASC),
+  CONSTRAINT `Unit_name_has_unit`
+    FOREIGN KEY (`Unit_name`)
+    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Detachment_Name_has_unit`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  CONSTRAINT `Detachment_name_has_unit`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Army_Name_has_unit`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_name_has_unit`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -183,27 +185,27 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Keyword`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Keyword` (
-  `Keyword_Name` VARCHAR(50) NOT NULL,
-  `Unit_Name` VARCHAR(45) NULL,
-  `Detachment_Name` VARCHAR(45) NULL,
-  `Army_Name` VARCHAR(45) NULL,
+  `Keyword_name` VARCHAR(50) NOT NULL,
+  `Unit_name` VARCHAR(45) NULL,
+  `Detachment_name` VARCHAR(45) NULL,
+  `Army_name` VARCHAR(45) NULL,
   PRIMARY KEY (`Keyword_Name`),
-  INDEX `Unit_Name_idx` (`Unit_Name` ASC),
-  INDEX `Detachment_Name_idx` (`Detachment_Name` ASC),
-  INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Unit_Name_keyword`
-    FOREIGN KEY (`Unit_Name`)
-    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_Name`)
+  INDEX `Unit_name_idx` (`Unit_Name` ASC),
+  INDEX `Detachment_name_idx` (`Detachment_name` ASC),
+  INDEX `Army_name_idx` (`Army_name` ASC),
+  CONSTRAINT `Unit_name_keywork`
+    FOREIGN KEY (`Unit_name`)
+    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Detachment_Name_keyword`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  CONSTRAINT `Detachment_name_keywork`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
-  CONSTRAINT `Army_Name_keyword`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_name_keywork`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -213,36 +215,36 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Abilities`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Abilities` (
-  `Ability_Name` VARCHAR(45) NOT NULL,
-  `Ability_Description` VARCHAR(100) NULL,
-  PRIMARY KEY (`Ability_Name`))
+  `Ability_name` VARCHAR(45) NOT NULL,
+  `Ability_description` VARCHAR(100) NULL,
+  PRIMARY KEY (`Ability_name`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Unit_Has_Keyword`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit_Has_Keyword` (
-  `Unit_Name` VARCHAR(45) NOT NULL,
-  `Detachment_Name` VARCHAR(45) NULL,
-  `Army_Name` VARCHAR(45) NULL,
-  `Keyword_Name` VARCHAR(45) NULL,
-  PRIMARY KEY (`Unit_Name`),
-  INDEX `Detachment_Name_idx` (`Detachment_Name` ASC),
-  INDEX `Army_Name_idx` (`Army_Name` ASC),
-  CONSTRAINT `Unit_Name_has_keyword`
-    FOREIGN KEY (`Unit_Name`)
-    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_Name`)
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit_has_keyword` (
+  `Unit_name` VARCHAR(45) NOT NULL,
+  `Detachment_name` VARCHAR(45) NULL,
+  `Army_name` VARCHAR(45) NULL,
+  `Keyword_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`Unit_name`),
+  INDEX `Detachment_name_idx` (`Detachment_name` ASC),
+  INDEX `Army_name_idx` (`Army_name` ASC),
+  CONSTRAINT `Unit_name_has_keyword`
+    FOREIGN KEY (`Unit_name`)
+    REFERENCES `Warhammer40kDB`.`Unit` (`Unit_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `Detachment_Name_has_keyword`
-    FOREIGN KEY (`Detachment_Name`)
-    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_Name`)
+  CONSTRAINT `Detachment_name_has_keyword`
+    FOREIGN KEY (`Detachment_name`)
+    REFERENCES `Warhammer40kDB`.`Detachment` (`Detachment_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `Army_Name_has_keyword`
-    FOREIGN KEY (`Army_Name`)
-    REFERENCES `Warhammer40kDB`.`Army` (`Army_Name`)
+  CONSTRAINT `Army_name_has_keyword`
+    FOREIGN KEY (`Army_name`)
+    REFERENCES `Warhammer40kDB`.`Army` (`Army_name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -252,36 +254,36 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Weapon`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon` (
-  `Weapon_Name` VARCHAR(50) NOT NULL,
+  `Weapon_name` VARCHAR(50) NOT NULL,
   `Range` INT NULL,
   `Weapon_S` INT NULL,
-  `Armor_Piercing` INT NULL,
+  `Armor_piercing` INT NULL,
   `Damage` INT NULL,
-  `Weapon_Ability` VARCHAR(100) NULL,
-  `Weapon_Point_Value` INT NULL,
-  PRIMARY KEY (`Weapon_Name`))
+  `Weapon_ability` VARCHAR(100) NULL,
+  `Weapon_point_value` INT NULL,
+  PRIMARY KEY (`Weapon_name`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Weapon_Type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon_Type` (
-  `Type_Name` VARCHAR(20) NOT NULL,
-  `Weapon_Type` VARCHAR(45) NULL,
-  `Dice_Type` INT NULL,
-  `Dice_Number` INT NULL,
-  PRIMARY KEY (`Type_Name`))
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon_type` (
+  `Type_name` VARCHAR(20) NOT NULL,
+  `Weapon_type` VARCHAR(45) NULL,
+  `Dice_type` INT NULL,
+  `Dice_number` INT NULL,
+  PRIMARY KEY (`Type_name`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Weapon_Has_Type`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon_Has_Type` (
-  `Type_Name` VARCHAR(20) NOT NULL,
-  `Weapon_Name` VARCHAR(45) NULL,
-  PRIMARY KEY (`Type_Name`))
+CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon_has_type` (
+  `Type_name` VARCHAR(20) NOT NULL,
+  `Weapon_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`Type_name`))
 ENGINE = InnoDB;
 
 
@@ -289,10 +291,10 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Equipped`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Equipped` (
-  `Unit_Name` VARCHAR(30) NOT NULL,
-  `Detachment_Name` VARCHAR(45) NULL,
-  `Army_Name` VARCHAR(45) NULL,
-  `Weapon_Name` VARCHAR(45) NULL,
+  `Unit_name` VARCHAR(30) NOT NULL,
+  `Detachment_name` VARCHAR(45) NULL,
+  `Army_name` VARCHAR(45) NULL,
+  `Weapon_name` VARCHAR(45) NULL,
   PRIMARY KEY (`Unit_Name`))
 ENGINE = InnoDB;
 
@@ -300,4 +302,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
