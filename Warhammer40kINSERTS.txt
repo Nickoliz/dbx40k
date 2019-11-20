@@ -1,0 +1,46 @@
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Unit Type`
+-- -----------------------------------------------------
+INSERT INTO 'Unit_Type' VALUES ('HQ');
+INSERT INTO 'Unit_Type' VALUES ('Troop');
+INSERT INTO 'Unit_Type' VALUES ('Elite');
+INSERT INTO 'Unit_Type' VALUES ('Fast Attack');
+INSERT INTO 'Unit_Type' VALUES ('Heavy Support');
+INSERT INTO 'Unit_Type' VALUES ('Flyer');
+INSERT INTO 'Unit_Type' VALUES ('Dedicated Transport');
+INSERT INTO 'Unit_Type' VALUES ('Lord of War');
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Weapon_Type`
+-- -----------------------------------------------------
+INSERT INTO 'Weapon_Type' VALUES ('Heavy');
+INSERT INTO 'Weapon_Type' VALUES ('Assault');
+INSERT INTO 'Weapon_Type' VALUES ('Rapid Fire');
+INSERT INTO 'Weapon_Type' VALUES ('Melee');
+INSERT INTO 'Weapon_Type' VALUES ('Grenade');
+INSERT INTO 'Weapon_Type' VALUES ('Pistol');
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Detachment_Type`
+-- -----------------------------------------------------
+INSERT INTO 'Detachment_Type' VALUES ('Air Wing', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Auxiliary Support', -1);
+INSERT INTO 'Detachment_Type' VALUES ('Battalion', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Brigade', 12);
+INSERT INTO 'Detachment_Type' VALUES ('Air Wing', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Outrider', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Patrol', 0);
+INSERT INTO 'Detachment_Type' VALUES ('Planetstrike Attacker', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Planetstrike Defender', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Spearhead', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Stronghold Assault Attacker', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Stronghold Assault Defender', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Super-Heavy Auxiliary', 0);
+INSERT INTO 'Detachment_Type' VALUES ('Super-Heavy', 3);
+INSERT INTO 'Detachment_Type' VALUES ('Supreme Command', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Vanguard', 1);
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Detachment_Type_Includes_Unit_Type`
+-- -----------------------------------------------------
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('', 1);
