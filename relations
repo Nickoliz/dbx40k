@@ -1,4 +1,6 @@
--- File containing all relations for database.
+-- File containing all tables for database.
+
+-- Relations
 
 -- MySQL Workbench Forward Engineering
 
@@ -34,7 +36,7 @@ ENGINE = InnoDB;
 -- Table `Warhammer40kDB`.`Detachment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment` (
-  `Detachment_ID` INT NOT NULL COMMENT 'Longest detachment name is around 21 so set to 30 to be safe',
+  `Detachment_ID` INT NOT NULL, -- Longest detachment name is around 21 so set to 30 to be safe
   `Army_name` VARCHAR(45) NOT NULL,
   `Detachment_Name` VARCHAR(20) NOT NULL,
   `Faction` VARCHAR(45) NOT NULL,
