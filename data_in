@@ -1,1 +1,15 @@
 -- Data input statements for dbx40k project.
+
+// Abilities
+insert into abilities values ('Combat Squads', 'Before any models are deployed at the start of the game, this unit when containing its maximum number of models, may be split into two units each containing an equal number of models.');
+insert into abilities values ('Concealed positions', 'when you set up this unit during deployment, it can be set up anywhere on the battlefield that is more than 9-inch from the enemy deployment zone and any enemy models.');
+
+// Unit
+insert into unit values ('Scout', '', '', 6, 3, 3, 4, 4, 1, 1, 7, 4+, , '', );
+insert into unit values ('Scout Sergeant', '', '', 6, 3, 3, 4, 4, 1, 2, 7, 4, , '', );
+
+// Weapon
+insert into weapon values ('Bolt pistol', 12, 4, 0, 1, '-', );
+insert into weapon values ('Bolt gun', 24, 4, 0, 1, '-', );
+insert into weapon values ('Frag grenade', 6, 3, 0, 1, '-', );
+insert into weapon values ('Krak grenade', 6, 6, -1, 3, '-', );
