@@ -45,10 +45,22 @@ insert into unit_type values ('Troops');
 
 -- UNIT
 --INSERTED: NO
-insert into unit values ('Doom Scythe', 'Flyer', *, 6+, *, 6, 6, 12, *, 10, 3+, -, ,'',150);
+insert into unit values ('Doom Scythe', 'Flyer', '*', '6+', '*', 6, 6, 12, *, 10, '3+', 0, ,'',150);
+insert into unit values ('Cryptek', 'HQ', 5, '3+', '3+', 4, 4, 4, 1, 10, '4+', 0, '', 80);
 
---WEAPON
+-- Weapon_type
 -- INSERTED: NO
-inser into weapon values ('Death Ray', 'Heavy D3', 24, 10, -4, D6, '-');
-insert into weapon values('Tesla Destructor', 'Assault 4', 24, 7, 0, 1, 'Each hit roll of 6+ with this weapon causes 3 hits instead of 1.');
+insert into weapon_type values ('Melee');
+insert into weapon_type values ('Assault 3');
+insert into weapon_type values ('Assault 4');
+insert into weapon_type values ('Heavy D3');
 
+-- WEAPON
+-- INSERTED: NO
+insert into weapon values ('Death Ray', 'Heavy D3', 24, 10, -4, D6, '-');
+insert into weapon values ('Tesla Destructor', 'Assault 4', 24, 7, 0, 1, 'Each hit roll of 6+ with this weapon causes 3 hits instead of 1.');
+insert into weapon values ('Staff of Light (Melee)', 'Melee', '-', 'User', -2, 1, '-');
+
+-- ABILITIES
+-- INSERTED: NO
+insert into ability values ('Technomancer', 'Add 1 to all Reanimation Protocol rolls for models from <Dynast> units within 3" of any friendly <Dynasty> CRYPTEKS.');
