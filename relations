@@ -1,5 +1,3 @@
--- File containing all tables for database.
-
 -- Relations
 
 -- MySQL Workbench Forward Engineering
@@ -113,22 +111,21 @@ CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Detachment_Type_Has_Unit_Limit` (
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Unit`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Unit` (
   `Unit_Name` VARCHAR(50) NOT NULL,
   `Unit_Type` VARCHAR(19) NOT NULL,
-  `Move` INT NULL,
-  `W_Skill` INT NULL,
-  `B_Skill` INT NULL,
+  `Move` VARCHAR(2) NULL,
+  `W_Skill` VARCHAR(2) NULL, -- changed from INT
+  `B_Skill` VARCHAR(2) NULL, -- changed from INT
   `Unit_S` INT NULL,
   `Unit_T` INT NULL,
   `Wounds` INT NULL,
-  `Agility` INT NULL,
+  `Agility` VARCHAR(2) NULL, -- changed from INT
   `Leadership` INT NULL,
-  `Save` INT NULL,
+  `Save` VARCHAR(2) NULL, -- changed from INT
   `Invul` INT NULL,
   `Would_Track` VARCHAR(45) NULL, -- May need to make this its own table
   `Point_Value` INT NOT NULL,
@@ -184,21 +181,20 @@ CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon_Type` (
   PRIMARY KEY (`Type_Name`))
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Weapon`
 -- -----------------------------------------------------
+
+-- REMOVED attributed Weapon_point_value, dice_type, dice_number from table
+
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon` (
   `Weapon_Name` VARCHAR(45) NOT NULL,
   `Type_Name` VARCHAR(20) NOT NULL,
-  `Range` INT NULL,
-  `Weapon_S` INT NULL,
+  `Range` VARCHAR(6) NULL, -- changed from INT
+  `Weapon_S` VARCHAR(6) NULL, -- changed from INT
   `Armor_Piercing` INT NULL,
-  `Damage` INT NULL,
+  `Damage` CHAR(2) NULL, -- Changed from INT
   `Weapon_Ability` VARCHAR(100) NULL,
-  `Weapon_Point_Value` INT NOT NULL,
-  `Dice_Type` INT NOT NULL,
-  `Dice_Number` INT NOT NULL,
   PRIMARY KEY (`Weapon_Name`, `Type_Name`),
   INDEX `Type_Name_idx` (`Type_Name` ASC),
   CONSTRAINT `Type_Name_weapon`
