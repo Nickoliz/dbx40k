@@ -1,5 +1,9 @@
 -- Relations
 
+-- UPDATES TO TABLES
+-- Weapon (revised values and removed attributes)
+-- Unit (revised values)
+
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
