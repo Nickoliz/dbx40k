@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Weapon` (
   `Range` VARCHAR(6) NULL, -- changed from INT
   `Weapon_S` VARCHAR(6) NULL, -- changed from INT
   `Armor_Piercing` INT NULL,
-  `Damage` CHAR(2) NULL, -- Changed from INT
+  `Damage` VARCHAR(2) NULL, -- Changed from INT
   `Weapon_Ability` VARCHAR(100) NULL,
   PRIMARY KEY (`Weapon_Name`, `Type_Name`),
   INDEX `Type_Name_idx` (`Type_Name` ASC),
