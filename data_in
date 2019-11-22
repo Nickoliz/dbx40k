@@ -15,6 +15,7 @@ insert into weapon values ('Frag grenade', 6, 3, 0, 1, '-', );
 insert into weapon values ('Krak grenade', 6, 6, -1, 3, '-', );
 
 
+-- NICK
 -- NECRONS 
 -- ARMY
 -- Inserted: YES
@@ -26,10 +27,28 @@ insert into detachment values(1, 'Necrons', 'Air Wing Detachment', 'Xenos', 1);
 insert into detachment values(2, 'Necrons', 'Battalion Detachment', 'Xenos', 5);
 insert into detachment values(3, 'Necrons', 'Brigade Detachment', 'Xenos', 12);
 insert into detachment values(4, 'Necrons', 'Outrider Detachment', 'Xenos', 1);
-insert into detachment values(5, 'Necrons', 'Spearhead Detachment', 'Xenos', 1);
-insert into detachment values(6, 'Necrons', 'Supreme Command Detachment', 'Xenos', 1);
-insert into detachment values(7, 'Necrons', 'Vanguard Detachment', 'Xenos', 1);
+
+-- DETACHMENT_CONTAINS_DETACHMENT_TYPE
+insert into detachment_contains_detachment_type values (1, 'Necrons', 'Air Wing Detachment');
+insert into detachment_contains_detachment_type values (2, 'Necrons', 'Battaliion Detachment');
+insert into detachment_contains_detachment_type values (3, 'Necrons', 'Brigade Detachment');
+insert into detachment_contains_detachment_type values (4, 'Necrons', 'Outrider Detachment');
+
+-- UNIT_TYPE
+-- INSERTED: YES
+insert into unit_type values ('Flyer');
+insert into unit_type values ('HQ');
+insert into unit_type values ('Elites');
+insert into unit_type values ('Fast Attack');
+insert into unit_type values ('Heavy Support');
+insert into unit_type values ('Troops');
 
 -- UNIT
 --INSERTED: NO
-insert into unit values (
+insert into unit values ('Doom Scythe', 'Flyer', *, 6+, *, 6, 6, 12, *, 10, 3+, -, ,'',150);
+
+--WEAPON
+-- INSERTED: NO
+inser into weapon values ('Death Ray', 'Heavy D3', 24, 10, -4, D6, '-');
+insert into weapon values('Tesla Destructor', 'Assault 4', 24, 7, 0, 1, 'Each hit roll of 6+ with this weapon causes 3 hits instead of 1.');
+
