@@ -3,6 +3,7 @@
 -- UPDATES TO TABLES
 -- Weapon (revised values and removed attributes)
 -- Unit (revised values)
+-- Ability (ability_description revised to VARCHAR(900))
 
 -- MySQL Workbench Forward Engineering
 
@@ -157,7 +158,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Warhammer40kDB`.`Ability` (
   `Ability_Name` VARCHAR(45) NOT NULL,
-  `Ability_Description` VARCHAR(200) NOT NULL,
+  `Ability_Description` VARCHAR(900) NOT NULL,
   PRIMARY KEY (`Ability_Name`))
 ENGINE = InnoDB;
 
