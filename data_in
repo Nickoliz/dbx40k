@@ -1,14 +1,18 @@
 -- Data input statements for dbx40k project.
 
-// Abilities
+-- Wei
+-- Space Marines(?)
+-- INSERTED: NO
+
+-- Abilities
 insert into abilities values ('Combat Squads', 'Before any models are deployed at the start of the game, this unit when containing its maximum number of models, may be split into two units each containing an equal number of models.');
 insert into abilities values ('Concealed positions', 'when you set up this unit during deployment, it can be set up anywhere on the battlefield that is more than 9-inch from the enemy deployment zone and any enemy models.');
 
-// Unit
+-- Unit
 insert into unit values ('Scout', '', '', 6, 3, 3, 4, 4, 1, 1, 7, 4+, , '', );
 insert into unit values ('Scout Sergeant', '', '', 6, 3, 3, 4, 4, 1, 2, 7, 4, , '', );
 
-// Weapon
+-- Weapon
 insert into weapon values ('Bolt pistol', 12, 4, 0, 1, '-', );
 insert into weapon values ('Bolt gun', 24, 4, 0, 1, '-', );
 insert into weapon values ('Frag grenade', 6, 3, 0, 1, '-', );
@@ -28,15 +32,39 @@ insert into detachment values(2, 'Necrons', 'Battalion Detachment', 'Xenos', 5);
 insert into detachment values(3, 'Necrons', 'Brigade Detachment', 'Xenos', 12);
 insert into detachment values(4, 'Necrons', 'Outrider Detachment', 'Xenos', 1);
 
+-- Detachment_type_has_unit_limit
+-- INSERTED: YES
+insert into detachment_type_has_unit_limit values ('Air Wing Detachment', 'Flyer', 3, 5);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'HQ', 2, 3);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'Elites', 0, 6);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Fast Attack', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
+insert into detachment_type_has_unit_limit values ('Outrider Detachment', 'Troops', 0, 3);
+
+
+-- Army_has_detachment
+-- INSERTED: YES
+insert into army_has_detachment values ('Necron', 1);
+insert into army_has_detachment values ('Necron', 2);
+insert into army_has_detachment values ('Necron', 3);
+insert into army_has_detachment values ('Necron', 4);
+
+-- Detachment_type
+-- INSERTED: YES
+insert into detachment_type values ('Air Wing Detachment', 1);
+insert into detachment_type values ('Battalion Detachment', 5);
+insert into detachment_type values ('Brigade Detachment', 12);
+insert into detachment_type values ('Outrider Detachment', 1);
+
 -- DETACHMENT_CONTAINS_DETACHMENT_TYPE
--- INSERTED: NO
+-- INSERTED: YES
 insert into detachment_contains_detachment_type values (1, 'Necrons', 'Air Wing Detachment');
 insert into detachment_contains_detachment_type values (2, 'Necrons', 'Battaliion Detachment');
 insert into detachment_contains_detachment_type values (3, 'Necrons', 'Brigade Detachment');
 insert into detachment_contains_detachment_type values (4, 'Necrons', 'Outrider Detachment');
 
 -- Detachment_contains_units
--- INSERTED: NO
+-- INSERTED: YES
 insert into detachment_contains_units values (1, 'Necron', 'Doom Scythe', 'Flyer', 1);
 insert into detachment_contains_units values (2, 'Necron', 'Cryptek', 'HQ', 1);
 insert into detachment_contains_units values (2, 'Necron', 'Deathmark', 'Elites', 1);
@@ -73,7 +101,7 @@ insert into weapon_type values ('Heavy D3');
 insert into weapon_type values ('Rapid Fire 1');
 
 -- WEAPON
--- INSERTED: NO
+-- INSERTED: YES
 insert into weapon values ('Death Ray', 'Heavy D3', 24, 10, -4, D6, '-');
 insert into weapon values ('Tesla Destructor', 'Assault 4', 24, 7, 0, 1, 'Each hit roll of 6+ with this weapon causes 3 hits instead of 1.');
 insert into weapon values ('Staff of Light (Melee)', 'Melee', '-', 'User', -2, 1, '-');
@@ -84,10 +112,11 @@ insert into weapon values ('Automation Claws', 'Melee', 'Melee', 'User', -2, 'D3
 insert into weapon values ('Gauss Blaster', 'Rapid Fire 1', 24, 5, -2, 1, '-');
 
 
--- ABILITIES
--- INSERTED: NO
+-- ABILITY
+-- INSERTED: YES
 insert into ability values ('Technomancer', 'Add 1 to all Reanimation Protocol rolls for models from <Dynast> units within 3" of any friendly <Dynasty> CRYPTEKS.');
 insert into ability values ('Ethereal Interception', 'When an enemy unit is set up (other than during deployment or when disembarking) you can immediately set up a unit of Deathmarks that was set up in a hyperspace oubliette on the battlefield, anywhere more than 9" away from enemy models and within 12" of the enemy unit that has just been set up. You can then make a shooting attack with this unit as if it were your Shooting phase, but this attack must target the enemy unit that was just set up.');
 insert into ability values ('Hunters from Hyperspace', 'During deployment, you can set up a unit of Deathmarks in a hyperspace oubliette instead of placing them on the battlefield. At the end of any of your Movement phases the Deathmarks can slip back into reality - set them up anywhere on the battlefield that is more than 9" away from any enemy models.');
 insert into ability values ('Scarab Hive','At the beginning of your turn, you can roll a D6 for each <DYNASTY> Canoptek Scarabs unit from your army that is below its starting number of models and within 6" of any friendly <DYNASTY> Canoptek Spyders units. On a roll of 1, one of those Canoptek Spyders units within 6" of the unit being rolled for suffers a mortal wound. On a 2+ one of the Canoptek Spyders units within 6" of the unit being rolled for unleashes reinforcements: return a Canoptek Scarab Swarm to the depleted unit, in unit coherency and more than 1" from enemy models. If you cannot do this because there is no room to place the model, do not set it up.');
 
+-- 
