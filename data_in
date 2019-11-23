@@ -120,3 +120,54 @@ insert into ability values ('Hunters from Hyperspace', 'During deployment, you c
 insert into ability values ('Scarab Hive','At the beginning of your turn, you can roll a D6 for each <DYNASTY> Canoptek Scarabs unit from your army that is below its starting number of models and within 6" of any friendly <DYNASTY> Canoptek Spyders units. On a roll of 1, one of those Canoptek Spyders units within 6" of the unit being rolled for suffers a mortal wound. On a 2+ one of the Canoptek Spyders units within 6" of the unit being rolled for unleashes reinforcements: return a Canoptek Scarab Swarm to the depleted unit, in unit coherency and more than 1" from enemy models. If you cannot do this because there is no room to place the model, do not set it up.');
 
 -- 
+
+James, army: Tyranids
+
+insert into army values ('Tyranids',0,0);
+
+-- DETACHMENT
+insert into detachment values(1, 'Tyranids', 'Air Wing Detachment', 'Xenos', 1);
+insert into detachment values(2, 'Tyranids', 'Battalion Detachment', 'Xenos', 5);
+insert into detachment values(3, 'Tyranids', 'Brigade Detachment', 'Xenos', 12);
+insert into detachment values(4, 'Tyranids', 'Outrider Detachment', 'Xenos', 1);
+
+
+-- Detachment_type_has_unit_limit
+insert into detachment_type_has_unit_limit values ('Air Wing Detachment', 'Flyer', 3, 5);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'HQ', 2, 3);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'Elites', 0, 6);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Fast Attack', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
+insert into detachment_type_has_unit_limit values ('Outrider Detachment', 'Troops', 0, 3);
+
+
+-- Army_has_detachment
+insert into army_has_detachment values ('Tyranids', 1);
+insert into army_has_detachment values ('Tyranids', 2);
+insert into army_has_detachment values ('Tyranids', 3);
+insert into army_has_detachment values ('Tyranids', 4);
+
+
+-- DETACHMENT_CONTAINS_DETACHMENT_TYPE
+insert into detachment_contains_detachment_type values (1, 'Tyranids', 'Air Wing Detachment');
+insert into detachment_contains_detachment_type values (2, 'Tyranids', 'Battaliion Detachment');
+insert into detachment_contains_detachment_type values (3, 'Tyranids', 'Brigade Detachment');
+insert into detachment_contains_detachment_type values (4, 'Tyranids', 'Outrider Detachment');
+
+-- Detachment_contains_units
+insert into detachment_contains_units values (1, 'Tyranids', 'Harpy', 'Flyer', 3);
+insert into detachment_contains_units values (2, 'Tyranids', 'Broodlord', 'HQ', 1);
+insert into detachment_contains_units values (2, 'Tyranids', 'Lictor', 'Elites', 1);
+insert into detachment_contains_units values (3, 'Tyranids', 'Gargoyles', 'Fast Attack', 10);
+insert into detachment_contains_units values (3, 'Tyranids', 'Exocrine', 'Heavy Support', 1);
+insert into detachment_contains_units values (4, 'Tyranids', 'Ripper Swarms', 'Troops', 3);
+
+
+-- UNIT
+insert into unit values ('Harpy', 'Flyer', '*', '*', '*', 6, 6, 12, 3, 9, '4+', 0, ,'', 143);
+insert into unit values ('Broodlord', 'HQ', 8, '2+', '-', 5, 5, 6, 6, 10, '4+/5++', 0, '', 115);
+insert into unit values ('Lictor', 'Elites', 9, '2+', '4+', 6, 4, 4, 3, 9, '5+', 0, '', 34);
+insert into unit values ('Gargoyles', 'Fast Attack', 12, '4+', '4+', 3, 3, 1, 1, 5, '6+', 0, '', 60);
+insert into unit values ('Exocrine', 'Heavy Support', 6, '*', '*', 7, 8, 12, *, 6, '3+', 0, '', 170);
+insert into unit values ('Ripper Swarms', 'Troops', 6, '5+', '5+', 3, 3, 3, 4, 4, '6+', 0, '', 33);
+
