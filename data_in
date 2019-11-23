@@ -171,3 +171,27 @@ insert into unit values ('Gargoyles', 'Fast Attack', 12, '4+', '4+', 3, 3, 1, 1,
 insert into unit values ('Exocrine', 'Heavy Support', 6, '*', '*', 7, 8, 12, *, 6, '3+', 0, '', 170);
 insert into unit values ('Ripper Swarms', 'Troops', 6, '5+', '5+', 3, 3, 3, 4, 4, '6+', 0, '', 33);
 
+-- Weapon_type
+insert into weapon_type values ('Melee');
+insert into weapon_type values ('Assault 1');
+insert into weapon_type values ('Assault 2');
+insert into weapon_type values ('Assault 4');
+insert into weapon_type values ('Assault D6');
+insert into weapon_type values ('Heavy 6');
+
+
+-- WEAPON
+insert into weapon values ('Scything Wings', 'Melee', 'Melee', 'User', -2, D3, 'You can re-roll hit rolls of 1 when attacking with this weapon.');
+insert into weapon values ('Stinger Salvo', 'Assault 4', 24, 5, -1, -1, '-');
+insert into weapon values ('Stranglethorn Cannon', 'Assault D6', 24, 7, -1, 2, 'You can add 1 to hit rolls for this weapon when attacking a unit with 10 or more models.');
+insert into weapon values ('Monstrous Rending Claws', 'Melee', 'Melee', 'User', -3, D3, 'You can re-roll failed wound rolls for this weapon. In addition, each time you make a wound roll of 6+, that hit is resolved with an AP of -6 and Damage of 3.');
+insert into weapon values ('Flesh Hooks', 'Assault 2', 6, 'User', 0, 1, 'This weapon can be fired within 1" of an enemy unit, and can target enemy units within 1" of friendly units.');
+insert into weapon values ('Grasping Talons', 'Melee', 'Melee', 'User', -1, 2, '-');
+insert into weapon values ('Rending Claws', 'Melee', 'Melee', 'User', -1, 1, 'Each time you make a wound roll of 6+ for this weapon, that hit is resolved with an AP of -4.');
+insert into weapon values ('Blinding Venom', 'Melee', 'Melee', 3, 0, 1, 'If any unit suffers any unsaved wounds from this weapon, your opponent must subtract 1 from hit rolls for that unit until the end of the turn.');
+insert into weapon values ('Fleshborer', 'Assault 1', 12, 4, 0, 1, '-');
+insert into weapon values ('Bio-plasmic Cannon', 'Heavy 6', 36, 7, -3, 2, '-');
+insert into weapon values ('Powerful Limbs', 'Melee', 'Melee', 'User', -1, 2, '-');
+insert into weapon values ('Claws and Teeth', 'Melee', 'Melee', 'User', 0, 1, '-');
+
+
