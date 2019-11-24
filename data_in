@@ -59,7 +59,7 @@ insert into detachment_type values ('Outrider Detachment', 1);
 -- DETACHMENT_CONTAINS_DETACHMENT_TYPE
 -- INSERTED: YES
 insert into detachment_contains_detachment_type values (1, 'Necrons', 'Air Wing Detachment');
-insert into detachment_contains_detachment_type values (2, 'Necrons', 'Battaliion Detachment');
+insert into detachment_contains_detachment_type values (2, 'Necrons', 'Battalion Detachment');
 insert into detachment_contains_detachment_type values (3, 'Necrons', 'Brigade Detachment');
 insert into detachment_contains_detachment_type values (4, 'Necrons', 'Outrider Detachment');
 
@@ -150,7 +150,7 @@ insert into army_has_detachment values ('Tyranids', 4);
 
 -- DETACHMENT_CONTAINS_DETACHMENT_TYPE
 insert into detachment_contains_detachment_type values (1, 'Tyranids', 'Air Wing Detachment');
-insert into detachment_contains_detachment_type values (2, 'Tyranids', 'Battaliion Detachment');
+insert into detachment_contains_detachment_type values (2, 'Tyranids', 'Battalion Detachment');
 insert into detachment_contains_detachment_type values (3, 'Tyranids', 'Brigade Detachment');
 insert into detachment_contains_detachment_type values (4, 'Tyranids', 'Outrider Detachment');
 
