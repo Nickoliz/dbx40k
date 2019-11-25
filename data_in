@@ -195,3 +195,119 @@ insert into weapon values ('Powerful Limbs', 'Melee', 'Melee', 'User', -1, 2, '-
 insert into weapon values ('Claws and Teeth', 'Melee', 'Melee', 'User', 0, 1, '-');
 
 
+-- Jordan
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Unit Type`
+-- -----------------------------------------------------
+INSERT INTO 'Unit_Type' VALUES ('HQ');
+INSERT INTO 'Unit_Type' VALUES ('Troop');
+INSERT INTO 'Unit_Type' VALUES ('Elite');
+INSERT INTO 'Unit_Type' VALUES ('Fast Attack');
+INSERT INTO 'Unit_Type' VALUES ('Heavy Support');
+INSERT INTO 'Unit_Type' VALUES ('Flyer');
+INSERT INTO 'Unit_Type' VALUES ('Dedicated Transport');
+INSERT INTO 'Unit_Type' VALUES ('Lord of War');
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Weapon_Type`
+-- -----------------------------------------------------
+INSERT INTO 'Weapon_Type' VALUES ('Heavy');
+INSERT INTO 'Weapon_Type' VALUES ('Assault');
+INSERT INTO 'Weapon_Type' VALUES ('Rapid Fire');
+INSERT INTO 'Weapon_Type' VALUES ('Melee');
+INSERT INTO 'Weapon_Type' VALUES ('Grenade');
+INSERT INTO 'Weapon_Type' VALUES ('Pistol');
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Detachment_Type`
+-- -----------------------------------------------------
+INSERT INTO 'Detachment_Type' VALUES ('Air Wing', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Auxiliary Support', -1);
+INSERT INTO 'Detachment_Type' VALUES ('Battalion', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Brigade', 12);
+INSERT INTO 'Detachment_Type' VALUES ('Outrider', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Patrol', 0);
+INSERT INTO 'Detachment_Type' VALUES ('Planetstrike Attacker', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Planetstrike Defender', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Spearhead', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Stronghold Assault Attacker', 5);
+INSERT INTO 'Detachment_Type' VALUES ('Stronghold Assault Defender', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Super-Heavy Auxiliary', 0);
+INSERT INTO 'Detachment_Type' VALUES ('Super-Heavy', 3);
+INSERT INTO 'Detachment_Type' VALUES ('Supreme Command', 1);
+INSERT INTO 'Detachment_Type' VALUES ('Vanguard', 1);
+
+-- -----------------------------------------------------
+-- Table `Warhammer40kDB`.`Detachment_Type_Includes_Unit_Type`
+-- -----------------------------------------------------
+-- Refer to https://1d4chan.org/wiki/Warhammer_40,000/Tactics(8E)#Detachments_for_Dummies for adding in data
+
+-- Air Wing
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'HQ', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Troop', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Elite', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Fast Attack', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Heavy Support', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Flyer', 3, 5);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Dedicated Transport', 0, 0);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Lord of War', 0, 0);
+
+-- Auxiliary Support
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'HQ', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Troop', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Elite', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Fast Attack', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Heavy Support', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Flyer', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Dedicated Transport', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Lord of War', 0, 0);
+
+-- Battalion
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'HQ', 2, 3);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Troop', 3, 6);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Elite', 0, 6);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Fast Attack', 0, 3);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Heavy Support', 0, 3);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Flyer', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Dedicated Transport', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Lord of War', 0, 0);
+
+-- Brigade
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'HQ', 3, 5);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Troop', 6, 12);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Elite', 3, 8);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Fast Attack', 3, 5);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Heavy Support', 3, 5);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Flyer', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Dedicated Transport', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Lord of War', 0, 0);
+
+-- Outrider
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'HQ', 1, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Troop', 0, 3);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Elite', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Fast Attack', 3, 6);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Heavy Support', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Flyer', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Dedicated Transport', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Lord of War', 0, 0);
+
+-- Patrol
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'HQ', 1, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Troop', 1, 3);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Elite', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Fast Attack', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Heavy Support', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Flyer', 0, 2);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Dedicated Transport', 0, 1);
+INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Lord of War', 0, 0);
+
+-- Planetstrike Attacker
+-- Planetstrike Defender
+-- Spearhead
+-- Stronghold Assault Attacker
+-- Stronghold Assault Defender
+-- Super-Heavy Auxiliary
+-- Super-Heavy
+-- Supreme Command
+-- Detachment_Type
