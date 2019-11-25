@@ -194,6 +194,38 @@ insert into weapon values ('Bio-plasmic Cannon', 'Heavy 6', 36, 7, -3, 2, '-');
 insert into weapon values ('Powerful Limbs', 'Melee', 'Melee', 'User', -1, 2, '-');
 insert into weapon values ('Claws and Teeth', 'Melee', 'Melee', 'User', 0, 1, '-');
 
+-- ABILITY
+insert into ability values ('Death Throes', 'If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3" suffers D3 mortal wounds.');
+insert into ability values ('Instinctive Behavior', 'Unless a <HIVE FLEET> unit with this ability is within 24" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit.');
+insert into ability values ('Sonic Screech', 'When a Harpy successfully charges, until the end of the turn enemy units within 1" cannot be chosen to Fight until all other eligible units have done so.');
+insert into ability values ('Spore Mine Cysts','A Harpy can drop Spore Mines as it flies over enemy units in the Movement phase. To do so, after the Harpy has moved, pick one enemy unit that it flew over and roll a D6 for each model in the unit, up to maximum of 3 dice. Each time you roll a 4+ a Spore Mine has hit the target and explodes. Roll a D6 to find out how much damage is inflicted; on a 1 the Spore Mine fails to inflict any harm, on a 2-5 it inflicts 1 mortal wound, and on a 6 it inflicts D3 mortal wounds. Each time a Spore Mine misses its target, set up a single <HIVE FLEET> Spore Mine anywhere within 6" of the target unit and more than 3" from any enemy model (if the Spore Mine cannot be placed it is destroyed). This then follows the rules for a Spore Mine (pg 99) that is part of your army, but it cannot move or charge during the turn it was set up.');
+insert into ability values ('Brood Telepathy','You can add 1 to hit rolls in the Fight phase for <HIVE FLEET> Genestealer units within 6" of and friendly <HIVE FLEET> Broodlords.')
+insert into ability values ('Lightning Reflexes','Models in this unit have a 5+ invulnerable save.');
+insert into ability values ('Shadow in the Warp','Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18" of any units with this ability. TYRANID PSYKERS are not affected.');
+insert into ability values ('Swift and Deadly','Models in this unit can charge even if they Advanced during its turn.');
+insert into ability values ('Synapse','<HIVE FLEET> units automatically pass Morale tests if they are within 12" of any friendly <HIVE FLEET> units with this ability.')
+insert into ability values ('Chameleonic Skin','Your opponent must subtract 1 from their hit rolls for attacks that target this model. In addition, add 2 instead of 1 to saving throws for this model when it is in cover.')
+insert into ability values ('Hidden Hunter','During deployment, you can set up this model in hiding instead of placing it on the battlefield. At the end of any of your Movement phases, this model can spring from its hiding place - set it up anywhere on the battlefield that is more than 9" away from enemy models. You can re-roll the this model's charge distance in the turn in which it uses this ability to arrive on the battlefield.');
+insert into ability values ('Hail of Living Ammunition','If this unit contains 20 or more models, you can re-roll wound rolls of 1 when it shoots.')
+insert into ability values ('Instinctive Behavior','Unless a <HIVE FLEET> unit with this ability is within 24" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit.');
+insert into ability values ('Swooping Assault','During deployment you can set this unit up clinging to an ariborne Harridan instead of placing them on the battlefield. At the end of any of your Movemnt phases this unit can swoop down from above - set them up anywhere that is more that 9" away from any enemy models.')
+insert into ability values ('Symbiotic Targeting','If this model did not move in its Movement phase, you can add 1 to its hit rolls in the following Shooting phase. If you do so, it cannot charge in the same turn.');
+insert into ability values ('Weapon Beast','If this model does not move in your Movement phase, it can shoot all of its weapons twice in your Shooting phase.');
+insert into ability values ('Burrowers','During deployment, you can set up a unit of Ripper Swarms underground instead of on the battlefield. At the end of any of your Movement phases, they can tunnel up to the battlefield - set them up anywhere that is more than 9" from any enemy models.');
+
+insert into keyword values ('Flyer');
+insert into keyword values ('Fly');
+insert into keyword values ('Monster');
+insert into keyword values ('Tyranids');
+insert into keyword values ('HQ');
+insert into keyword values ('Genestealer');
+insert into keyword values ('Character');
+insert into keyword values ('Infantry');
+insert into keyword values ('Psyker');
+insert into keyword values ('Synapse');
+insert into keyword values ('Elites');
+insert into keyword values ('Lictor');
+
 
 -- Jordan
 -- -----------------------------------------------------
