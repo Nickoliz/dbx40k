@@ -3,7 +3,7 @@
 -- Wei
 -- Space Marines
 -- Army
--- Inserted: NO
+-- Inserted: no
 insert into army values ('Space Marines', 0, 0);
 
 -- Abilities
