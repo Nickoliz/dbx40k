@@ -1,22 +1,96 @@
 -- Data input statements for dbx40k project.
 
 -- Wei
--- Space Marines(?)
--- INSERTED: NO
+-- Space Marines
+-- Army
+-- Inserted: NO
+insert into army values ('Space Marines', 0, 0);
 
 -- Abilities
+-- Inserted: no
 insert into abilities values ('Combat Squads', 'Before any models are deployed at the start of the game, this unit when containing its maximum number of models, may be split into two units each containing an equal number of models.');
 insert into abilities values ('Concealed positions', 'when you set up this unit during deployment, it can be set up anywhere on the battlefield that is more than 9-inch from the enemy deployment zone and any enemy models.');
 
 -- Unit
-insert into unit values ('Scout', '', '', 6, 3, 3, 4, 4, 1, 1, 7, 4+, , '', );
-insert into unit values ('Scout Sergeant', '', '', 6, 3, 3, 4, 4, 1, 2, 7, 4, , '', );
+-- Inserted: no
+insert into unit values ('Scout', 'Flyer', 5, '6+', '3+', 3, 4, 4, 1, 1, '4+', 0, '', 50);
+insert into unit values ('Scout Sergeant', 'HQ', 6, '3+', '3+', 4, 4, 1, 2, 7, '4+', 0, '', 70);
+insert into unit values ('Tactical Marine', 'HQ', 5, '3+', '3+', 4, 4, 4, 1, 10, '4+', 0, '', 80);
+insert into unit values ('Assault Marine', 'Elites', 5, '3+', '3+', 4, 4, 1, 1, 10, '3+', 0, '', 85);
+insert into unit values ('Heavy Bolter Devastator', 'Fast Attack', 10, '4+', '-', 3, 3, 3, 4, 10, '6+', 0, '', 39);
+insert into unit values ('Lascannon Devastator', 'Heavy Support', 6, '4+', '4+', 6, 6, 4, 4, 10, '3+', 0, '', 65);
+
+-- Unit_type
+-- Inserted: no
+insert into unit_type values ('Flyer');
+insert into unit_type values ('HQ');
+insert into unit_type values ('Elites');
+insert into unit_type values ('Fast Attack');
+insert into unit_type values ('Heavy Support');
+insert into unit_type values ('Troop');
+
+-- Detachment_contains_units
+-- Inserted: no
+insert into detachment_contains_units values (1, 'Space Marines', 'Scout', 'Flyer', 1);
+insert into detachment_contains_units values (2, 'Space Marines', 'Scout Sergeant', 'HQ', 1);
+insert into detachment_contains_units values (2, 'Space Marines', 'Tactical Marine', 'HQ', 1);
+insert into detachment_contains_units values (3, 'Space Marines', 'Assault Marine', 'Elites', 1);
+insert into detachment_contains_units values (3, 'Space Marines', 'Heavy Bolter Devastator', 'Fast Attack', 1);
+insert into detachment_contains_units values (4, 'Space Marines', 'Lascannon Devastator', 'Heavy Support', 1);
 
 -- Weapon
-insert into weapon values ('Bolt pistol', 12, 4, 0, 1, '-', );
-insert into weapon values ('Bolt gun', 24, 4, 0, 1, '-', );
-insert into weapon values ('Frag grenade', 6, 3, 0, 1, '-', );
-insert into weapon values ('Krak grenade', 6, 6, -1, 3, '-', );
+-- Inserted: no
+insert into weapon values ('Bolt pistol', 'Troop', 12, 4, 0, 1, '-');
+insert into weapon values ('Bolt gun', 'Ordnance', 24, 4, 0, 1, '-');
+insert into weapon values ('Frag grenade', 'Melee', 6, 3, 0, 1, '-');
+insert into weapon values ('Krak grenade', 'Melee', 6, 6, -1, D3, '-');
+insert into weapon values ('Assult Squad', 'Troop', 20, 10, -3, D6, '-');
+insert into weapon values ('Fire Raptor', 'Flyer', 16, 10, 0, 1, '-');
+
+-- Weapon_type
+-- Inserted: no
+insert into weapon_type values ('Melee');
+insert into weapon_type values ('Troop');
+insert into weapon_type values ('Flyer');
+insert into weapon_type values ('Ordnance');
+
+-- Detachment
+-- Inserted: no
+insert into detachment values(1, 'Space Marine', 'Air Wing Detachment', 'Xenos', 1);
+insert into detachment values(2, 'Space Marine', 'Battalion Detachment', 'Xenos', 5);
+insert into detachment values(3, 'Space Marine', 'Brigade Detachment', 'Xenos', 12);
+insert into detachment values(4, 'Space Marine', 'Outrider Detachment', 'Xenos', 1);
+
+-- Detachment_type_has_unit_limit
+-- Inserted: no
+insert into detachment_type_has_unit_limit values ('Air Wing Detachment', 'Flyer', 3, 5);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'HQ', 2, 3);
+insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'Elites', 0, 6);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Fast Attack', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
+insert into detachment_type_has_unit_limit values ('Outrider Detachment', 'Troops', 0, 3);
+
+-- Army_has_detachment
+-- Inserted: no
+insert into army_has_detachment values ('Space Marine', 1);
+insert into army_has_detachment values ('Space Marine', 2);
+insert into army_has_detachment values ('Space Marine', 3);
+insert into army_has_detachment values ('Space Marine', 4);
+
+-- Detachment_type
+-- Inserted: no
+insert into detachment_type values ('Air Wing Detachment', 1);
+insert into detachment_type values ('Battalion Detachment', 5);
+insert into detachment_type values ('Brigade Detachment', 12);
+insert into detachment_type values ('Outrider Detachment', 1);
+
+-- Detachment_contains_detachment_type
+-- Inserted: no
+insert into detachment_contains_detachment_type values (1, 'Space Marine', 'Air Wing Detachment');
+insert into detachment_contains_detachment_type values (2, 'Space Marine', 'Battalion Detachment');
+insert into detachment_contains_detachment_type values (3, 'Space Marine', 'Brigade Detachment');
+insert into detachment_contains_detachment_type values (4, 'Space Marine', 'Outrider Detachment');
+
 
 
 -- NICK
