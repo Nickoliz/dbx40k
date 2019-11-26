@@ -3,16 +3,16 @@
 -- Wei
 -- Space Marines
 -- Army
--- Inserted: no
+-- Inserted: YES
 insert into army values ('Space Marines', 0, 0);
 
--- Abilities
--- Inserted: no
-insert into abilities values ('Combat Squads', 'Before any models are deployed at the start of the game, this unit when containing its maximum number of models, may be split into two units each containing an equal number of models.');
-insert into abilities values ('Concealed positions', 'when you set up this unit during deployment, it can be set up anywhere on the battlefield that is more than 9-inch from the enemy deployment zone and any enemy models.');
+-- Ability
+-- Inserted: YES
+insert into ability values ('Combat Squads', 'Before any models are deployed at the start of the game, this unit when containing its maximum number of models, may be split into two units each containing an equal number of models.');
+insert into ability values ('Concealed positions', 'when you set up this unit during deployment, it can be set up anywhere on the battlefield that is more than 9-inch from the enemy deployment zone and any enemy models.');
 
 -- Unit
--- Inserted: no
+-- Inserted: YES
 insert into unit values ('Scout', 'Flyer', 5, '6+', '3+', 3, 4, 4, 1, 1, '4+', 0, '', 50);
 insert into unit values ('Scout Sergeant', 'HQ', 6, '3+', '3+', 4, 4, 1, 2, 7, '4+', 0, '', 70);
 insert into unit values ('Tactical Marine', 'HQ', 5, '3+', '3+', 4, 4, 4, 1, 10, '4+', 0, '', 80);
@@ -20,17 +20,8 @@ insert into unit values ('Assault Marine', 'Elites', 5, '3+', '3+', 4, 4, 1, 1, 
 insert into unit values ('Heavy Bolter Devastator', 'Fast Attack', 10, '4+', '-', 3, 3, 3, 4, 10, '6+', 0, '', 39);
 insert into unit values ('Lascannon Devastator', 'Heavy Support', 6, '4+', '4+', 6, 6, 4, 4, 10, '3+', 0, '', 65);
 
--- Unit_type
--- Inserted: no
-insert into unit_type values ('Flyer');
-insert into unit_type values ('HQ');
-insert into unit_type values ('Elites');
-insert into unit_type values ('Fast Attack');
-insert into unit_type values ('Heavy Support');
-insert into unit_type values ('Troop');
-
 -- Detachment_contains_units
--- Inserted: no
+-- Inserted: NO
 insert into detachment_contains_units values (1, 'Space Marines', 'Scout', 'Flyer', 1);
 insert into detachment_contains_units values (2, 'Space Marines', 'Scout Sergeant', 'HQ', 1);
 insert into detachment_contains_units values (2, 'Space Marines', 'Tactical Marine', 'HQ', 1);
@@ -39,36 +30,24 @@ insert into detachment_contains_units values (3, 'Space Marines', 'Heavy Bolter 
 insert into detachment_contains_units values (4, 'Space Marines', 'Lascannon Devastator', 'Heavy Support', 1);
 
 -- Weapon
--- Inserted: no
-insert into weapon values ('Bolt pistol', 'Troop', 12, 4, 0, 1, '-');
-insert into weapon values ('Bolt gun', 'Ordnance', 24, 4, 0, 1, '-');
-insert into weapon values ('Frag grenade', 'Melee', 6, 3, 0, 1, '-');
-insert into weapon values ('Krak grenade', 'Melee', 6, 6, -1, D3, '-');
-insert into weapon values ('Assult Squad', 'Troop', 20, 10, -3, D6, '-');
+-- Inserted: YES
+insert into weapon values ('Bolt Pistol', 'Pistol 1', 12, 4, 0, 1, '-');
+insert into weapon values ('Bolt Gun', 'Ordnance', 24, 4, 0, 1, '-');
+insert into weapon values ('Frag Grenade', 'Melee', 6, 3, 0, 1, '-');
+insert into weapon values ('Krak Grenade', 'Melee', 6, 6, -1, 'D3', '-');
+insert into weapon values ('Chainsword', 'Melee', 'Melee', 'User', 0, 1, 'Each time the bearer fights, it can make 1 additional attack with this weapon.');
 insert into weapon values ('Fire Raptor', 'Flyer', 16, 10, 0, 1, '-');
 
 -- Weapon_type
--- Inserted: no
-insert into weapon_type values ('Melee');
-insert into weapon_type values ('Troop');
-insert into weapon_type values ('Flyer');
+-- Inserted: YES
 insert into weapon_type values ('Ordnance');
 
 -- Detachment
 -- Inserted: no
-insert into detachment values(1, 'Space Marine', 'Air Wing Detachment', 'Xenos', 1);
-insert into detachment values(2, 'Space Marine', 'Battalion Detachment', 'Xenos', 5);
-insert into detachment values(3, 'Space Marine', 'Brigade Detachment', 'Xenos', 12);
-insert into detachment values(4, 'Space Marine', 'Outrider Detachment', 'Xenos', 1);
-
--- Detachment_type_has_unit_limit
--- Inserted: no
-insert into detachment_type_has_unit_limit values ('Air Wing Detachment', 'Flyer', 3, 5);
-insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'HQ', 2, 3);
-insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'Elites', 0, 6);
-insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Fast Attack', 3, 5);
-insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
-insert into detachment_type_has_unit_limit values ('Outrider Detachment', 'Troops', 0, 3);
+insert into detachment values(1, 'Space Marine', 'Air Wing Detachment', 'Imperium', 1);
+insert into detachment values(2, 'Space Marine', 'Battalion Detachment', 'Imperium', 5);
+insert into detachment values(3, 'Space Marine', 'Brigade Detachment', 'Imperium', 12);
+insert into detachment values(4, 'Space Marine', 'Outrider Detachment', 'Imperium', 1);
 
 -- Army_has_detachment
 -- Inserted: no
@@ -77,20 +56,12 @@ insert into army_has_detachment values ('Space Marine', 2);
 insert into army_has_detachment values ('Space Marine', 3);
 insert into army_has_detachment values ('Space Marine', 4);
 
--- Detachment_type
--- Inserted: no
-insert into detachment_type values ('Air Wing Detachment', 1);
-insert into detachment_type values ('Battalion Detachment', 5);
-insert into detachment_type values ('Brigade Detachment', 12);
-insert into detachment_type values ('Outrider Detachment', 1);
-
 -- Detachment_contains_detachment_type
 -- Inserted: no
 insert into detachment_contains_detachment_type values (1, 'Space Marine', 'Air Wing Detachment');
 insert into detachment_contains_detachment_type values (2, 'Space Marine', 'Battalion Detachment');
 insert into detachment_contains_detachment_type values (3, 'Space Marine', 'Brigade Detachment');
 insert into detachment_contains_detachment_type values (4, 'Space Marine', 'Outrider Detachment');
-
 
 
 -- NICK
@@ -200,22 +171,14 @@ James, army: Tyranids
 insert into army values ('Tyranids',0,0);
 
 -- DETACHMENT
+-- INSERTED: YES
 insert into detachment values(1, 'Tyranids', 'Air Wing Detachment', 'Xenos', 1);
 insert into detachment values(2, 'Tyranids', 'Battalion Detachment', 'Xenos', 5);
 insert into detachment values(3, 'Tyranids', 'Brigade Detachment', 'Xenos', 12);
 insert into detachment values(4, 'Tyranids', 'Outrider Detachment', 'Xenos', 1);
 
-
--- Detachment_type_has_unit_limit
-insert into detachment_type_has_unit_limit values ('Air Wing Detachment', 'Flyer', 3, 5);
-insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'HQ', 2, 3);
-insert into detachment_type_has_unit_limit values ('Battalion Detachment', 'Elites', 0, 6);
-insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Fast Attack', 3, 5);
-insert into detachment_type_has_unit_limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
-insert into detachment_type_has_unit_limit values ('Outrider Detachment', 'Troops', 0, 3);
-
-
 -- Army_has_detachment
+-- INSERTED: YES
 insert into army_has_detachment values ('Tyranids', 1);
 insert into army_has_detachment values ('Tyranids', 2);
 insert into army_has_detachment values ('Tyranids', 3);
@@ -223,12 +186,14 @@ insert into army_has_detachment values ('Tyranids', 4);
 
 
 -- DETACHMENT_CONTAINS_DETACHMENT_TYPE
+-- INSERTED: YES
 insert into detachment_contains_detachment_type values (1, 'Tyranids', 'Air Wing Detachment');
 insert into detachment_contains_detachment_type values (2, 'Tyranids', 'Battalion Detachment');
 insert into detachment_contains_detachment_type values (3, 'Tyranids', 'Brigade Detachment');
 insert into detachment_contains_detachment_type values (4, 'Tyranids', 'Outrider Detachment');
 
 -- Detachment_contains_units
+-- INSERTED: NO
 insert into detachment_contains_units values (1, 'Tyranids', 'Harpy', 'Flyer', 3);
 insert into detachment_contains_units values (2, 'Tyranids', 'Broodlord', 'HQ', 1);
 insert into detachment_contains_units values (2, 'Tyranids', 'Lictor', 'Elites', 1);
@@ -238,6 +203,7 @@ insert into detachment_contains_units values (4, 'Tyranids', 'Ripper Swarms', 'T
 
 
 -- UNIT
+-- INSERTED: YES
 insert into unit values ('Harpy', 'Flyer', '*', '*', '*', 6, 6, 12, 3, 9, '4+', 0, ,'', 143);
 insert into unit values ('Broodlord', 'HQ', 8, '2+', '-', 5, 5, 6, 6, 10, '4+/5++', 0, '', 115);
 insert into unit values ('Lictor', 'Elites', 9, '2+', '4+', 6, 4, 4, 3, 9, '5+', 0, '', 34);
@@ -246,15 +212,14 @@ insert into unit values ('Exocrine', 'Heavy Support', 6, '*', '*', 7, 8, 12, *, 
 insert into unit values ('Ripper Swarms', 'Troops', 6, '5+', '5+', 3, 3, 3, 4, 4, '6+', 0, '', 33);
 
 -- Weapon_type
-insert into weapon_type values ('Melee');
+-- INSERTED: YES
 insert into weapon_type values ('Assault 1');
-insert into weapon_type values ('Assault 2');
-insert into weapon_type values ('Assault 4');
 insert into weapon_type values ('Assault D6');
 insert into weapon_type values ('Heavy 6');
 
 
 -- WEAPON
+-- INSERTED: YES
 insert into weapon values ('Scything Wings', 'Melee', 'Melee', 'User', -2, D3, 'You can re-roll hit rolls of 1 when attacking with this weapon.');
 insert into weapon values ('Stinger Salvo', 'Assault 4', 24, 5, -1, -1, '-');
 insert into weapon values ('Stranglethorn Cannon', 'Assault D6', 24, 7, -1, 2, 'You can add 1 to hit rolls for this weapon when attacking a unit with 10 or more models.');
@@ -269,18 +234,19 @@ insert into weapon values ('Powerful Limbs', 'Melee', 'Melee', 'User', -1, 2, '-
 insert into weapon values ('Claws and Teeth', 'Melee', 'Melee', 'User', 0, 1, '-');
 
 -- ABILITY
+-- INSERTED: YES
 insert into ability values ('Death Throes', 'If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3" suffers D3 mortal wounds.');
 insert into ability values ('Instinctive Behavior', 'Unless a <HIVE FLEET> unit with this ability is within 24" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit.');
 insert into ability values ('Sonic Screech', 'When a Harpy successfully charges, until the end of the turn enemy units within 1" cannot be chosen to Fight until all other eligible units have done so.');
 insert into ability values ('Spore Mine Cysts','A Harpy can drop Spore Mines as it flies over enemy units in the Movement phase. To do so, after the Harpy has moved, pick one enemy unit that it flew over and roll a D6 for each model in the unit, up to maximum of 3 dice. Each time you roll a 4+ a Spore Mine has hit the target and explodes. Roll a D6 to find out how much damage is inflicted; on a 1 the Spore Mine fails to inflict any harm, on a 2-5 it inflicts 1 mortal wound, and on a 6 it inflicts D3 mortal wounds. Each time a Spore Mine misses its target, set up a single <HIVE FLEET> Spore Mine anywhere within 6" of the target unit and more than 3" from any enemy model (if the Spore Mine cannot be placed it is destroyed). This then follows the rules for a Spore Mine (pg 99) that is part of your army, but it cannot move or charge during the turn it was set up.');
-insert into ability values ('Brood Telepathy','You can add 1 to hit rolls in the Fight phase for <HIVE FLEET> Genestealer units within 6" of and friendly <HIVE FLEET> Broodlords.')
+insert into ability values ('Brood Telepathy','You can add 1 to hit rolls in the Fight phase for <HIVE FLEET> Genestealer units within 6" of and friendly <HIVE FLEET> Broodlords.');
 insert into ability values ('Lightning Reflexes','Models in this unit have a 5+ invulnerable save.');
 insert into ability values ('Shadow in the Warp','Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18" of any units with this ability. TYRANID PSYKERS are not affected.');
 insert into ability values ('Swift and Deadly','Models in this unit can charge even if they Advanced during its turn.');
 insert into ability values ('Synapse','<HIVE FLEET> units automatically pass Morale tests if they are within 12" of any friendly <HIVE FLEET> units with this ability.')
 insert into ability values ('Chameleonic Skin','Your opponent must subtract 1 from their hit rolls for attacks that target this model. In addition, add 2 instead of 1 to saving throws for this model when it is in cover.')
 insert into ability values ('Hidden Hunter','During deployment, you can set up this model in hiding instead of placing it on the battlefield. At the end of any of your Movement phases, this model can spring from its hiding place - set it up anywhere on the battlefield that is more than 9" away from enemy models. You can re-roll the this model's charge distance in the turn in which it uses this ability to arrive on the battlefield.');
-insert into ability values ('Hail of Living Ammunition','If this unit contains 20 or more models, you can re-roll wound rolls of 1 when it shoots.')
+insert into ability values ('Hail of Living Ammunition','If this unit contains 20 or more models, you can re-roll wound rolls of 1 when it shoots.');
 insert into ability values ('Instinctive Behavior','Unless a <HIVE FLEET> unit with this ability is within 24" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit.');
 insert into ability values ('Swooping Assault','During deployment you can set this unit up clinging to an ariborne Harridan instead of placing them on the battlefield. At the end of any of your Movemnt phases this unit can swoop down from above - set them up anywhere that is more that 9" away from any enemy models.')
 insert into ability values ('Symbiotic Targeting','If this model did not move in its Movement phase, you can add 1 to its hit rolls in the following Shooting phase. If you do so, it cannot charge in the same turn.');
@@ -299,34 +265,31 @@ insert into keyword values ('Psyker');
 insert into keyword values ('Synapse');
 insert into keyword values ('Elites');
 insert into keyword values ('Lictor');
-
+insert into keyword values ('Vehicle');
+insert into keyword values ('Aircraft');
 
 -- Jordan
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Unit Type`
 -- -----------------------------------------------------
-INSERT INTO 'Unit_Type' VALUES ('HQ');
-INSERT INTO 'Unit_Type' VALUES ('Troop');
-INSERT INTO 'Unit_Type' VALUES ('Elite');
-INSERT INTO 'Unit_Type' VALUES ('Fast Attack');
-INSERT INTO 'Unit_Type' VALUES ('Heavy Support');
-INSERT INTO 'Unit_Type' VALUES ('Flyer');
+-- INSERTED: YES
 INSERT INTO 'Unit_Type' VALUES ('Dedicated Transport');
 INSERT INTO 'Unit_Type' VALUES ('Lord of War');
 
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Weapon_Type`
 -- -----------------------------------------------------
+-- INSERTED: YES
 INSERT INTO 'Weapon_Type' VALUES ('Heavy');
 INSERT INTO 'Weapon_Type' VALUES ('Assault');
 INSERT INTO 'Weapon_Type' VALUES ('Rapid Fire');
-INSERT INTO 'Weapon_Type' VALUES ('Melee');
 INSERT INTO 'Weapon_Type' VALUES ('Grenade');
 INSERT INTO 'Weapon_Type' VALUES ('Pistol');
 
 -- -----------------------------------------------------
 -- Table `Warhammer40kDB`.`Detachment_Type`
 -- -----------------------------------------------------
+-- INSERTED: YES
 INSERT INTO 'Detachment_Type' VALUES ('Air Wing', 1);
 INSERT INTO 'Detachment_Type' VALUES ('Auxiliary Support', -1);
 INSERT INTO 'Detachment_Type' VALUES ('Battalion', 5);
@@ -344,69 +307,69 @@ INSERT INTO 'Detachment_Type' VALUES ('Supreme Command', 1);
 INSERT INTO 'Detachment_Type' VALUES ('Vanguard', 1);
 
 -- -----------------------------------------------------
--- Table `Warhammer40kDB`.`Detachment_Type_Includes_Unit_Type`
+-- Table `Warhammer40kDB`.`detachment_type_has_unit_limit`
 -- -----------------------------------------------------
 -- Refer to https://1d4chan.org/wiki/Warhammer_40,000/Tactics(8E)#Detachments_for_Dummies for adding in data
 
 -- Air Wing
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'HQ', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Troop', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Elite', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Fast Attack', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Heavy Support', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Flyer', 3, 5);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Dedicated Transport', 0, 0);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Air Wing', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'HQ', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Troop', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Elite', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Fast Attack', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Heavy Support', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Flyer', 3, 5);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Dedicated Transport', 0, 0);
+insert into detachment_type_has_unit_limit values ('Air Wing', 'Lord of War', 0, 0);
 
 -- Auxiliary Support
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'HQ', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Troop', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Elite', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Fast Attack', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Heavy Support', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Flyer', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Dedicated Transport', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Auxiliary Support', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'HQ', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Troop', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Elite', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Fast Attack', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Heavy Support', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Flyer', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Dedicated Transport', 0, 1);
+insert into detachment_type_has_unit_limit values ('Auxiliary Support', 'Lord of War', 0, 0);
 
 -- Battalion
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'HQ', 2, 3);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Troop', 3, 6);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Elite', 0, 6);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Fast Attack', 0, 3);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Heavy Support', 0, 3);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Flyer', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Dedicated Transport', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Battalion', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Battalion', 'HQ', 2, 3);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Troop', 3, 6);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Elite', 0, 6);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Fast Attack', 0, 3);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Heavy Support', 0, 3);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Flyer', 0, 2);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Dedicated Transport', 0, 1);
+insert into detachment_type_has_unit_limit values ('Battalion', 'Lord of War', 0, 0);
 
 -- Brigade
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'HQ', 3, 5);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Troop', 6, 12);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Elite', 3, 8);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Fast Attack', 3, 5);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Heavy Support', 3, 5);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Flyer', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Dedicated Transport', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Brigade', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Brigade', 'HQ', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Troop', 6, 12);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Elite', 3, 8);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Fast Attack', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Heavy Support', 3, 5);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Flyer', 0, 2);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Dedicated Transport', 0, 1);
+insert into detachment_type_has_unit_limit values ('Brigade', 'Lord of War', 0, 0);
 
 -- Outrider
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'HQ', 1, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Troop', 0, 3);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Elite', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Fast Attack', 3, 6);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Heavy Support', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Flyer', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Dedicated Transport', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Outrider', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Outrider', 'HQ', 1, 2);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Troop', 0, 3);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Elite', 0, 2);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Fast Attack', 3, 6);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Heavy Support', 0, 2);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Flyer', 0, 2);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Dedicated Transport', 0, 1);
+insert into detachment_type_has_unit_limit values ('Outrider', 'Lord of War', 0, 0);
 
 -- Patrol
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'HQ', 1, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Troop', 1, 3);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Elite', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Fast Attack', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Heavy Support', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Flyer', 0, 2);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Dedicated Transport', 0, 1);
-INSERT INTO 'Detachment_Type_Includes_Unit_Type' VALUES ('Patrol', 'Lord of War', 0, 0);
+insert into detachment_type_has_unit_limit values ('Patrol', 'HQ', 1, 2);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Troop', 1, 3);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Elite', 0, 2);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Fast Attack', 0, 2);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Heavy Support', 0, 2);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Flyer', 0, 2);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Dedicated Transport', 0, 1);
+insert into detachment_type_has_unit_limit values ('Patrol', 'Lord of War', 0, 0);
 
 -- Planetstrike Attacker
 -- Planetstrike Defender
