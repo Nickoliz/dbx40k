@@ -9,15 +9,15 @@ from tkinter import *
 root = Tk()
 
 #Creating a Label Widget
-myLabel1 = Label(root, text="Let's build a Warhammer 40k army!")
-myLabel2 = Label(root, text="Below is a simple army builder for players new to the 40k world.")
-myLabel3 = Label(root, text ="To get started select an army.")
+openingLine1 = Label(root, text="Let's build a Warhammer 40k army!")
+openingLine2 = Label(root, text="Below is a simple army builder for players new to the 40k world.")
+openingLine3 = Label(root, text ="To get started select an army.")
 
 
 #Output by grid
-myLabel1.grid(row=0, column=0)
-myLabel2.grid(row=1, column=0)
-myLabel3.grid(row=2, column=0)
+openingLine1.grid(row=0, column=0)
+openingLine2.grid(row=1, column=0)
+openingLine3.grid(row=2, column=0)
 
 #Button command
 def myClick():
