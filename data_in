@@ -10,6 +10,13 @@ select * from Detachment_Contains_Units;
 select * from Ability;
 
 -- Test query
+select Army_Name from Army;
+select Army_Name from Detachment where Faction='Xenos';
+select Detachment_Name from Detachment_Type_Has_Unit_Limit where Minimum>0 and Maximum<5;
+select * from Detachment_Type where Command_Point_Value>10; 
+select Army_Name, Unit_Name from Detachment_Contains_Units where Unit_Type='Flyer';
+select Weapon_Name from Weapon, Weapon_Type where Range>5 and Type_Name='Melee';
+select Unit_Name from Unit_Possesses_Keyword, Keyword where Keyword_Name='Fly';
 
 -- Insert statements
 -- Army
@@ -19,6 +26,7 @@ insert into Army values ('Space Marines', 0, 0);
 insert into Army values ('Tyranids',0,0);
 
 -- Detachment
+-- Necrons
 -- INSERTED: YES
 insert into Detachment values(1, 'Necrons', 'Air Wing Detachment', 'Xenos', 1);
 insert into Detachment values(2, 'Necrons', 'Battalion Detachment', 'Xenos', 5);
@@ -45,7 +53,7 @@ insert into Detachment_Type values ('Air Wing Detachment', 1);
 insert into Detachment_Type values ('Battalion Detachment', 5);
 insert into Detachment_Type values ('Brigade Detachment', 12);
 insert into Detachment_Type values ('Outrider Detachment', 1);
-select * from Detachment_Contains_Units;
+
 -- Space Marines
 -- INSERTED: YES
 insert into Detachment_Contains_Units values (1, 'Space Marines', 'Scout', 'Flyer', 1);
@@ -55,7 +63,6 @@ insert into Detachment_Contains_Units values (3, 'Space Marines', 'Assault Marin
 insert into Detachment_Contains_Units values (3, 'Space Marines', 'Heavy Bolter Devastator', 'Fast Attack', 1);
 insert into Detachment_Contains_Units values (4, 'Space Marines', 'Lascannon Devastator', 'Heavy Support', 1);
 
--- JORDAN
 -- INSERTED: YES
 insert into Detachment_Type values ('Air Wing', 1);
 insert into Detachment_Type values ('Auxiliary Support', -1);
@@ -82,7 +89,6 @@ insert into Detachment_Type_Has_Unit_Limit values ('Brigade Detachment', 'Fast A
 insert into Detachment_Type_Has_Unit_Limit values ('Brigade Detachment', 'Heavy Support', 3, 5);
 insert into Detachment_Type_Has_Unit_Limit values ('Outrider Detachment', 'Troops', 0, 3);
 
--- JORDAN
 -- INSERTED: YES
 -- Air Wing
 insert into Detachment_Type_Has_Unit_Limit values ('Air Wing', 'HQ', 0, 0);
